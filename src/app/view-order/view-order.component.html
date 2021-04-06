@@ -1,0 +1,32 @@
+<div class="container row mt-5 ml-5">
+    <div class="col-9">
+        <div class="card mb-3 mx-1" style="max-width: 540px;" *ngFor="let item of cartBooks">
+            <div class="row">
+                <div class="col-6">
+                    <img src="{{item.retrievedImage}}" alt="{{item.name}}" width="200">
+                </div>
+                <div class="col-6 text-right">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.name}}</h5>
+                        <p class="card-text">Author: {{item.author}}</p>
+                        <p class="card-text">Category: {{item.category}}</p>
+                        <p class="card-text"><small class="text-muted">${{item.price}}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <form #order="ngForm">
+            <div class="mb-3">
+                <label for="returnDate" class="form-label">Return date</label>
+                <input type="date" class="form-control" id="returnDate" name="returnDate" ngModel required>
+            </div>
+            <div class="mb-3">
+                <label for="totalPrice" class="form-label">Total price</label>
+                <p id="totalPrice" name="totalPrice"><i>${{ totalPrice }},00</i></p>
+            </div>
+            <button class="btn btn-success" (click)="addOrder(order.value)">Save Order</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container ml-5">
+    <h5>{{book.id == null ? 'Add' : 'Edit'}} Book {{book.id}}</h5>
+    <form>
+        <input type="text" class="form-control my-3" id="name" placeholder="Book name" [(ngModel)]="book.name" name="name">
+
+        <input type="text" class="form-control" id="author" placeholder="Author" name="author" [(ngModel)]="book.author">
+
+        <input type="text" class="form-control my-3" id="price" placeholder="Price" name="price" [(ngModel)]="book.price">
+
+        <input type="text" class="form-control" id="quantityStock" placeholder="Quantity" name="quantityStock" [(ngModel)]="book.quantityStock">
+
+        <input type="text" class="form-control my-3" id="category" placeholder="Category" name="category" [(ngModel)]="book.category">
+
+        <div class="form-group" *ngIf="book.id == null">
+            <br>
+            <input type="file" (change)="onFileChanged($event)">
+            <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+        </div>
+        <div class="saveBook mb-3">
+            <button type="button" class="btn btn-outline-success btn-sm mt-3" (click)="saveBook()">Save Book</button>
+        </div>
+    </form>
+</div>

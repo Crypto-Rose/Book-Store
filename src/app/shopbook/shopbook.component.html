@@ -1,0 +1,57 @@
+<div class="container row mt-5">
+    <div class="col-md-3 ml-5">
+        <h5>List of Books</h5>
+    </div>
+    <div class="col-md-4 offset-md-4 custom-products-cart-container">
+        <div>
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="dropdown">
+                    <a href="#" class="btn btn-danger btn-sm" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <span class="fa fa-shopping-cart">
+                            Books Added In Cart:
+                        </span>
+                        <span class="caret">{{cartBooks.length}}</span>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-cart" role="menu">
+                        <li *ngFor="let item of cartBooks">
+                            <div class="item product-cart-item row">
+                                <div class="ml-2 col-6" *ngIf="item">{{item.name}}</div>
+                                <div class="col-4" *ngIf="item"><strong>${{item.price}}</strong></div>
+                            </div>
+                        </li>
+                        <hr>
+                        <div class="item product-cart-item row dropButton">
+                            <div class="ml-2 col-5">
+                                <a class="btn btn-sm btn-success" role="button" (click)="goToCart()">View</a>
+                            </div>
+                            <div class="col-5" *ngIf="cartBooks.length > 0">
+                                <a class="btn btn-sm btn-warning" role="button" (click)="emptyCart()">Empty</a>
+                            </div>
+                        </div>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container row mt-5 ml-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let book of books;let i=index">
+            <div class="card h-100">
+                <img img src="{{book.retrievedImage}}" class="card-img-top" alt="books">
+                <div class="card-body">
+                    <h5 class="card-title">{{book.name}}: ${{book.price}}</h5>
+                    <p class="card-text">
+                        Author: <i>{{book.author}}</i><br/> Category: <i>{{book.category}}</i>
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-success btn-sm" (click)="addToCart(book.id)" [disabled]="book.isAdded===true">Add To Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

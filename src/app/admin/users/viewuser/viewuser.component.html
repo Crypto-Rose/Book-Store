@@ -1,0 +1,25 @@
+<div class="userDetails">
+    <h5 class="mb-5">
+        User details
+        <a class="btn btn-sm btn-outline-danger deleteUser" (click)="deleteUser()"> delete</a>
+    </h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <td>User Id</td>
+                <td>User Name</td>
+                <td>User Type</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.type}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+</div>

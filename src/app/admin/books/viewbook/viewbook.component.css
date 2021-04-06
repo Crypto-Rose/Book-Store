@@ -1,0 +1,27 @@
+table,
+th,
+td {
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    border-collapse: collapse;
+}
+
+.table {
+    box-shadow: 3px 4px 10px #dee2e6;
+    margin: auto !important;
+}
+
+.editBook {
+    color: #ffc107 !important;
+    cursor: pointer;
+}
+
+.deleteBook {
+    color: #dc3545 !important;
+    cursor: pointer;
+}
+
+.editBook:hover,
+.deleteBook:hover {
+    color: #fff !important;
+}

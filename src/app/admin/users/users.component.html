@@ -1,0 +1,32 @@
+<div class="container row mt-5 ml-5">
+    <div class="col-md-3">
+        <h5>List of Users</h5>
+    </div>
+    <div class="col-md-4 offset-md-2 custom-products-cart-container">
+        <a class="btn btn-success btn-sm mb-3 addUser" (click)="addUser()">Add</a>
+    </div>
+    <div class="container row justify-content-between">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}}</td>
+                        <td><button type="button" class="btn btn-outline-info btn-sm" (click)="viewUser(user.id)">Show Details</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4 text-center">
+            <app-adduser *ngIf="action === 'add'" [user]="selectedUser" (userAddedEvent)="refreshData()"></app-adduser>
+            <app-viewuser *ngIf="action === 'view'" [user]="selectedUser" (userDeletedEvent)="refreshData()"></app-viewuser>
+        </div>
+    </div>
+</div>
